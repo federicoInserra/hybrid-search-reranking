@@ -22,7 +22,7 @@ The system uses a three-stage search approach:
 2. **Reranking**: Applies ColBERT v2.0 late interaction model to rerank the candidates
 3. **Filtering**: Optional filtering based on metadata (e.g., user ID)
 
-![Hybrid Search Architecture](https://i.imgur.com/placeholder.png)
+![Hybrid Search Architecture]([https://i.imgur.com/placeholder.png](https://qdrant.tech/documentation/examples/reranking-hybrid-search/image3.png))
 
 ## Installation
 
@@ -49,7 +49,6 @@ docker run -p 6333:6333 qdrant/qdrant
 4. Download the dataset:
 
 ```bash
-mkdir -p dataset
 # Download the ABC News dataset from Kaggle:
 # https://www.kaggle.com/datasets/therohk/million-headlines
 # Place it in dataset/abcnews-date-text.csv
@@ -62,7 +61,6 @@ mkdir -p dataset
 To load the dataset and create embeddings:
 
 ```python
-from hybrid-search import upload_data
 
 # This will load the dataset, generate embeddings, and upload to Qdrant
 upload_data()
@@ -73,7 +71,7 @@ upload_data()
 Basic search:
 
 ```python
-from hybrid-search import search
+
 
 # Search for articles about "Italy world cup"
 search("Italy world cup")
@@ -132,13 +130,6 @@ The system uses three different embedding models:
 - **Replication**: Improves availability and read throughput
 - **Batch Processing**: Data is ingested in batches of 100 documents
 
-## Future Improvements
-
-- Implement cross-encoder reranking for even better result quality
-- Add query expansion techniques
-- Explore hybrid scoring methods
-- Add a simple web UI for demonstration
-- Implement caching for frequent queries
 
 ## License
 
